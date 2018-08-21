@@ -3,20 +3,20 @@ package mx.itesm.main;
 import mx.itesm.util.IntegerNode;
 
 public class Main {
-	
+
 	public static String toString(IntegerNode header) {
 		IntegerNode currentNode = header.next;
-		
+
 		if (currentNode == header) {
 			return "[]";
 		}
-		
+
 		String returnValue = "[" + currentNode.value;
 		while (currentNode.next != header) {
 			currentNode = currentNode.next;
 			returnValue += ", " + currentNode.value;
 		}
-		
+
 		returnValue += "]";
 		return returnValue;
 	}
@@ -34,15 +34,14 @@ public class Main {
 		cuatro.prev = sentinel;
 		current.prev = cuatro;
 		sentinel.next = cuatro;
-		
-		addFirst(sentinel,7);
-		addFirst(sentinel,1);
-		
+
+		addFirst(sentinel, 7);
+		addFirst(sentinel, 1);
 		System.out.println(toString(sentinel));
-		
+
 	}
-	
-	public static void addFirst (IntegerNode header, int value) {
+
+	public static void addFirst(IntegerNode header, int value) {
 		IntegerNode nuevo = new IntegerNode(value);
 		IntegerNode current = header.next;
 		nuevo.next = current;
