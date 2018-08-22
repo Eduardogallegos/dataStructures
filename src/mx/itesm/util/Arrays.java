@@ -70,4 +70,18 @@ public class Arrays {
 
 	}
 
+	public static String toString(int array[]) {
+		if (array.length == 0) {
+			return "[]";
+		}
+
+		String resultado = "[";
+		resultado += array[0];
+		for (int i = 1; i < array.length; i++) {
+			resultado += "," + array[i];
+		}
+		resultado += "]";
+		return resultado;
+	}
+
 }
