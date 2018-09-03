@@ -12,6 +12,16 @@ public class LinkedList<E> extends AbstractList<E> {
 		header = new Node<E>();
 		size = 0;
 	}
+	
+	@SafeVarargs
+	public LinkedList(E... elements) {
+		header = new Node<E>();
+		size = 0;
+		
+		for (E element : elements) {
+			addLast(element);
+		}
+	}
 
 	public void addFirst(E element) {
 		if (element == null) {
@@ -161,5 +171,23 @@ public class LinkedList<E> extends AbstractList<E> {
 		size--;
 		return nextNode.t;
 	}
+	
+	public E getFirst() {
+		if (size == 0) {
+			throw new NoSuchElementException();
+		}
+		Node<E> primero = header.next;
+		return primero.t;
+	}
+	
+	public E getLast() {
+		if (size == 0) {
+			throw new NoSuchElementException();
+		}
+		Node<E> ultimo = header.prev;
+		return ultimo.t;
+	}
+	
+	
 
 }
