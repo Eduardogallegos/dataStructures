@@ -1,5 +1,7 @@
 package mx.itesm.util;
 
+import mx.itesm.util.IntStack;
+
 public class Arrays {
 
 	public static int findMinimum(int array[]) {
@@ -82,6 +84,17 @@ public class Arrays {
 		}
 		resultado += "]";
 		return resultado;
+	}
+
+	/**
+	 * Reverses in place the order of the elements in the input array.
+	 * @param array the array to reverse.
+	 */
+	public static void reverse(int[] array) {
+		IntStack pila = new IntStack(array.length);
+		for (int i = array.length; i == 0; i--) {
+			pila.push(array[i]);
+		}
 	}
 
 }

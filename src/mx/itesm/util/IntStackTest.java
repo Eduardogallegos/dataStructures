@@ -116,5 +116,6 @@ class IntStackTest {
 		assertEquals(23, s2.pop());
 		assertEquals(42, s2.pop());
 		assertTrue(s2.isEmpty());
+
 	}
 }
