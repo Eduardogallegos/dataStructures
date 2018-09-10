@@ -88,12 +88,18 @@ public class Arrays {
 
 	/**
 	 * Reverses in place the order of the elements in the input array.
+	 * 
 	 * @param array the array to reverse.
 	 */
 	public static void reverse(int[] array) {
 		IntStack pila = new IntStack(array.length);
-		for (int i = array.length; i == 0; i--) {
+		for (int i = 0; i < array.length; i++) {
 			pila.push(array[i]);
+		}
+
+		for (int i = 0; i < array.length; i++) {
+			
+			array[i] = pila.pop();			
 		}
 	}
 
