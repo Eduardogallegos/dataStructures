@@ -72,8 +72,14 @@ public class ArrayList<E> extends AbstractList<E> {
 			listSize++;
 		} else {
 			listCapacity = listCapacity * 2;
-			for (int i = index; i < size(); i++) {
-				data[i] = data[i - 1];
+			if (index == 0) {
+				for (int i = 1; i < size(); i++) {
+					data[i] = data[i - 1];
+				}
+			} else {
+				for (int i = index; i < size(); i++) {
+					data[i] = data[i - 1];
+				}
 			}
 			data[index] = element;
 			listSize++;
@@ -115,6 +121,6 @@ public class ArrayList<E> extends AbstractList<E> {
 	}
 
 	public void trimToSize() {
-		throw new UnsupportedOperationException();
+		listCapacity = listSize; 
 	}
 }
