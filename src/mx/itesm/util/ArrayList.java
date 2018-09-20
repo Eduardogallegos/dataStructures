@@ -58,32 +58,20 @@ public class ArrayList<E> extends AbstractList<E> {
 		if (index < 0 || index > size()) {
 			throw new IndexOutOfBoundsException();
 		}
-		if (capacity() >= size() + 1) {
-			if (index == 0) {
-				for (int i = 1; i < size(); i++) {
-					data[i] = data[i - 1];
-				}
-			} else {
-				for (int i = index; i < size(); i++) {
-					data[i] = data[i - 1];
-				}
+		if (listCapacity == listSize) {
+			listCapacity *= 2;
+			E[] tempData = (E[]) new Object[listCapacity];
+			for (int i = 0; i < listSize; i++) {
+				tempData[i] = data[i];
 			}
-			data[index] = element;
-			listSize++;
-		} else {
-			listCapacity = listCapacity * 2;
-			if (index == 0) {
-				for (int i = 1; i < size(); i++) {
-					data[i] = data[i - 1];
-				}
-			} else {
-				for (int i = index; i < size(); i++) {
-					data[i] = data[i - 1];
-				}
-			}
-			data[index] = element;
-			listSize++;
+			data = tempData;
 		}
+
+		for (int i = listSize; i > index; i--) {
+			data[i] = data[i - 1];
+		}
+		data[index] = element;
+		listSize++;
 	}
 
 	@Override
@@ -95,7 +83,7 @@ public class ArrayList<E> extends AbstractList<E> {
 		for (int i = index; i < size(); i++) {
 			data[i] = data[i + 1];
 		}
-		listSize --;
+		listSize--;
 		return x;
 	}
 
@@ -115,12 +103,14 @@ public class ArrayList<E> extends AbstractList<E> {
 
 	@Override
 	public void clear() {
-		for (int i = 0; i < size(); i++) {
-			data[i] = null;
-		}
+		listSize = 0;
+		listCapacity = 10;
+
+		data = (E[]) new Object[listCapacity];
 	}
 
 	public void trimToSize() {
-		listCapacity = listSize; 
+		listCapacity = listSize;
+
 	}
 }
