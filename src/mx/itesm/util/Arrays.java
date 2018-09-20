@@ -98,9 +98,39 @@ public class Arrays {
 		}
 
 		for (int i = 0; i < array.length; i++) {
-			
-			array[i] = pila.pop();			
+
+			array[i] = pila.pop();
 		}
+	}
+
+	public static int indexOfLinear(int[] array, int target) {
+		int contador = 0;
+		int resultado = -1;
+		while (contador < array.length) {
+			if (target != array[contador]) {
+				contador++;
+			} else {
+				resultado = contador;
+				break;
+			}
+		}
+		return resultado;
+	}
+
+	public static int indexOfBinary(int[] array, int target) {
+		int min = 0;
+		int max = array.length - 1;
+		while (max >= min) {
+			int pos = (max + min) / 2;
+			if (target > array[pos]) {
+				min = pos + 1;
+			}else if(array[pos]> target) {
+				max = pos - 1;
+			}else {
+				return pos;
+			}
+		}
+		return -1;
 	}
 
 }
