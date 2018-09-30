@@ -124,13 +124,49 @@ public class Arrays {
 			int pos = (max + min) / 2;
 			if (target > array[pos]) {
 				min = pos + 1;
-			}else if(array[pos]> target) {
+			} else if (array[pos] > target) {
 				max = pos - 1;
-			}else {
+			} else {
 				return pos;
 			}
 		}
 		return -1;
 	}
 
+	public static void insertionsort(int[] unorderedArray) {
+		for (int i = 0; i < unorderedArray.length; i++) {
+			for (int j = 0; j < unorderedArray.length; j++) {
+				if (unorderedArray[j] > unorderedArray[i] && i > j) {
+					int x = unorderedArray[j];
+					unorderedArray[j] = unorderedArray[i];
+					unorderedArray[i] = x;
+				}
+			}
+		}
+	}
+
+	public static void selectionsort(int[] unorderedArray) {
+		for (int i = 0; i < unorderedArray.length; i++) {
+			for (int j = i; j < unorderedArray.length; j++) {
+				if (unorderedArray[i] > unorderedArray[j]) {
+					int x = unorderedArray[j];
+					unorderedArray[j] = unorderedArray[i];
+					unorderedArray[i] = x;
+				}
+			}
+		}
+	}
+
+	public static void bubblesort(int[] unorderedArray) {
+		for (int j = 0; j < unorderedArray.length; j++) {
+			for (int i = 1; i < unorderedArray.length; i++) {
+				if (unorderedArray[i - 1] > unorderedArray[i]) {
+					int x = unorderedArray[i - 1];
+					unorderedArray[i - 1] = unorderedArray[i];
+					unorderedArray[i] = x;
+				}
+				System.out.println(Arrays.toString(unorderedArray));
+			}
+		}
+	}
 }

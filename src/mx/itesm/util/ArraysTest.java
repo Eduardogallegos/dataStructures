@@ -60,5 +60,74 @@ class ArraysTest {
 		assertEquals(-1, Arrays.indexOfBinary(array2, -30));
 		assertEquals(-1, Arrays.indexOfBinary(array2, 50));
 	}
+	
+	@Test
+	public void  testSelectionsort() {
+		int[] array1 = { 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 };
+		Arrays.selectionsort(array1);
+		assertEquals("[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]", java.util.Arrays.toString(array1));
+		
+		int[] array2 = { 209, -32, -43, 0, 20, 12, -11, 111, 32, 0, 1 };
+		Arrays.selectionsort(array2);
+		assertEquals("[-43, -32, -11, 0, 0, 1, 12, 20, 32, 111, 209]", java.util.Arrays.toString(array2));
+		
+		int[] array3 = { 2, 1, 1, 1, 1, 0, 0, 0, -1, -1 };
+		Arrays.selectionsort(array3);
+		assertEquals("[-1, -1, 0, 0, 0, 1, 1, 1, 1, 2]", java.util.Arrays.toString(array3));
+		
+		int[] array4 = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+		Arrays.selectionsort(array4);
+		assertEquals("[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]", java.util.Arrays.toString(array4));
+		
+		int[] array5 = { };
+		Arrays.selectionsort(array5);
+		assertEquals("[]", java.util.Arrays.toString(array5));
+	}
+	
+	@Test
+	public void  testInsertionsort() {
+		int[] array1 = { 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 };
+		Arrays.insertionsort(array1);
+		assertEquals("[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]", java.util.Arrays.toString(array1));
+		
+		int[] array2 = { 209, -32, -43, 0, 20, 12, -11, 111, 32, 0, 1 };
+		Arrays.insertionsort(array2);
+		assertEquals("[-43, -32, -11, 0, 0, 1, 12, 20, 32, 111, 209]", java.util.Arrays.toString(array2));
+		
+		int[] array3 = { 2, 1, 1, 1, 1, 0, 0, 0, -1, -1 };
+		Arrays.insertionsort(array3);
+		assertEquals("[-1, -1, 0, 0, 0, 1, 1, 1, 1, 2]", java.util.Arrays.toString(array3));
+		
+		int[] array4 = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+		Arrays.insertionsort(array4);
+		assertEquals("[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]", java.util.Arrays.toString(array4));
+		
+		int[] array5 = { };
+		Arrays.insertionsort(array5);
+		assertEquals("[]", java.util.Arrays.toString(array5));
+	}
+	
+	@Test
+	public void  testBubblesort() {
+		int[] array1 = { 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 };
+		Arrays.bubblesort(array1);
+		assertEquals("[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]", java.util.Arrays.toString(array1));
+		
+		int[] array2 = { 209, -32, -43, 0, 20, 12, -11, 111, 32, 0, 1 };
+		Arrays.bubblesort(array2);
+		assertEquals("[-43, -32, -11, 0, 0, 1, 12, 20, 32, 111, 209]", java.util.Arrays.toString(array2));
+		
+		int[] array3 = { 2, 1, 1, 1, 1, 0, 0, 0, -1, -1 };
+		Arrays.bubblesort(array3);
+		assertEquals("[-1, -1, 0, 0, 0, 1, 1, 1, 1, 2]", java.util.Arrays.toString(array3));
+		
+		int[] array4 = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+		Arrays.bubblesort(array4);
+		assertEquals("[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]", java.util.Arrays.toString(array4));
+		
+		int[] array5 = { };
+		Arrays.bubblesort(array5);
+		assertEquals("[]", java.util.Arrays.toString(array5));
+	}
 
 }
