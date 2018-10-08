@@ -50,6 +50,7 @@ public class ArrayList<E> extends AbstractList<E> {
 		return x;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void add(int index, E element) {
 		if (element == null) {
@@ -101,6 +102,7 @@ public class ArrayList<E> extends AbstractList<E> {
 		return data[size() - 1];
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void clear() {
 		listSize = 0;

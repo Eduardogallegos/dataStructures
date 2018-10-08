@@ -1,5 +1,8 @@
 package mx.itesm.util;
 
+import java.util.Deque;
+import java.util.LinkedList;
+
 import mx.itesm.util.IntStack;
 
 public class Arrays {
@@ -165,8 +168,39 @@ public class Arrays {
 					unorderedArray[i - 1] = unorderedArray[i];
 					unorderedArray[i] = x;
 				}
-				System.out.println(Arrays.toString(unorderedArray));
 			}
 		}
+	}
+
+	public static void quicksort(int[] uArray, int minIndex, int maxIndex) {
+		if (minIndex >= maxIndex) {
+			return;
+		}
+		int div = uArray[minIndex];
+		Deque<Integer> before = new LinkedList<Integer>();
+		Deque<Integer> after = new LinkedList<Integer>();
+
+		for (int i = minIndex + 1; i <= maxIndex; i++) {
+			if (uArray[i] < div) {
+				before.push(uArray[i]);
+			} else {
+				after.push(uArray[i]);
+			}
+		}
+		int numero = minIndex;
+		int mid;
+		while(before.peek() != null) {
+			uArray[numero] = before.pop();
+			numero++;
+		}
+		mid = numero;
+		uArray[numero] = div;
+		numero ++;
+		while(after.peek() != null) {
+			uArray[numero] = after.pop();
+			numero++;
+		}
+		quicksort(uArray, minIndex, mid-1);
+		quicksort(uArray, mid+1, maxIndex);
 	}
 }

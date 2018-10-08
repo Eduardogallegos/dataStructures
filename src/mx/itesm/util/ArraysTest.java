@@ -129,5 +129,28 @@ class ArraysTest {
 		Arrays.bubblesort(array5);
 		assertEquals("[]", java.util.Arrays.toString(array5));
 	}
+	
+	@Test
+	public void  testQuicksort() {
+		int[] array1 = { 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 };
+		Arrays.quicksort(array1, 0, array1.length - 1);
+		assertEquals("[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]", java.util.Arrays.toString(array1));
+		
+		int[] array2 = { 209, -32, -43, 0, 20, 12, -11, 111, 32, 0, 1 };
+		Arrays.quicksort(array2, 0, array2.length - 1);
+		assertEquals("[-43, -32, -11, 0, 0, 1, 12, 20, 32, 111, 209]", java.util.Arrays.toString(array2));
+		
+		int[] array3 = { 2, 1, 1, 1, 1, 0, 0, 0, -1, -1 };
+		Arrays.quicksort(array3, 0, array3.length - 1);
+		assertEquals("[-1, -1, 0, 0, 0, 1, 1, 1, 1, 2]", java.util.Arrays.toString(array3));
+		
+		int[] array4 = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+		Arrays.quicksort(array4, 0, array4.length - 1);
+		assertEquals("[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]", java.util.Arrays.toString(array4));
+		
+		int[] array5 = { };
+		Arrays.quicksort(array5, 0, array5.length - 1);
+		assertEquals("[]", java.util.Arrays.toString(array5));
+	}
 
 }
