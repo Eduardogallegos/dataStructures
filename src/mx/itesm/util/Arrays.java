@@ -189,18 +189,53 @@ public class Arrays {
 		}
 		int numero = minIndex;
 		int mid;
-		while(before.peek() != null) {
+		while (before.peek() != null) {
 			uArray[numero] = before.pop();
 			numero++;
 		}
 		mid = numero;
 		uArray[numero] = div;
-		numero ++;
-		while(after.peek() != null) {
+		numero++;
+		while (after.peek() != null) {
 			uArray[numero] = after.pop();
 			numero++;
 		}
-		quicksort(uArray, minIndex, mid-1);
-		quicksort(uArray, mid+1, maxIndex);
+		quicksort(uArray, minIndex, mid - 1);
+		quicksort(uArray, mid + 1, maxIndex);
 	}
+
+	public static void mergesort(int[] unorderedArray, int[] scratch, int minIndex, int maxIndex) {
+		if (minIndex >= maxIndex) {
+			return;
+		}
+		int midIndex = (maxIndex + minIndex) / 2;
+		mergesort(unorderedArray, scratch, minIndex, midIndex);
+		mergesort(unorderedArray, scratch, midIndex + 1, maxIndex);
+
+		int leftIndex = minIndex;
+		int rightIndex = midIndex + 1;
+		int scratchIndex = leftIndex;
+
+		while ((leftIndex <= midIndex) && (rightIndex <= maxIndex)) {
+			if (unorderedArray[leftIndex] <= unorderedArray[rightIndex]) {
+				scratch[scratchIndex] = unorderedArray[leftIndex++];
+			} else {
+				scratch[scratchIndex] = unorderedArray[rightIndex++];
+			}
+			scratchIndex ++;
+		}
+		for (int i = leftIndex; i <= midIndex; i++) {
+			scratch[scratchIndex] = unorderedArray[i];
+			scratchIndex++;
+		}
+		for (int i = rightIndex; i <= maxIndex; i++) {
+			scratch[scratchIndex] = unorderedArray[i];
+			scratchIndex++;
+		}
+		for (int i = minIndex; i <= maxIndex; i++) {
+			unorderedArray[i] = scratch[i];
+		}
+
+	}
+
 }
