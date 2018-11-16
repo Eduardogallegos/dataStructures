@@ -122,4 +122,47 @@ public class StacksAndQueuesApplications {
 	public static boolean hasHigherPrecedence(String stackTop, String operator) {
 		return !((stackTop.equals("+") || stackTop.equals("-")) && (operator.equals("*") || operator.equals("/")));
 	}
+	
+	public static String reverseParenthesis(String s) {
+
+		Deque<Character> stack = new LinkedList<Character>();
+		Queue<Character> queue = new LinkedList<Character>();
+
+		for (int i = 0; i < s.length(); i++) {
+			char element = s.charAt(i);
+
+			if (element == ')') {
+				char elementInStack = stack.pop();
+				while (elementInStack != '(') {
+					queue.add(elementInStack);
+					elementInStack = stack.pop();
+				}
+				while (!queue.isEmpty()) {
+					stack.push(queue.remove());
+				}
+			} else {
+				stack.push(element);
+			}
+		}
+		String result = "";
+		while (!stack.isEmpty()) {
+			result = stack.pop() + result;
+		}
+
+		return result;
+
+		/*
+		 * Deque<Deque<Character>> collectionOfStacks = new
+		 * LinkedList<Deque<Character>>(); String result = "";
+		 * 
+		 * for (int i = 0; i < s.length(); i++) { char element = s.charAt(i); if
+		 * (element == '(') { collectionOfStacks.push(new LinkedList<Character>()); }
+		 * else if (element == ')') { Deque<Character> lastStack =
+		 * collectionOfStacks.pop(); while(!lastStack.isEmpty()) {
+		 * if(collectionOfStacks.isEmpty()) { result += lastStack.pop(); }else {
+		 * collectionOfStacks.peek().push(lastStack.pop()); } } } else { if
+		 * (collectionOfStacks.isEmpty()) { result += element; } else {
+		 * collectionOfStacks.peek().push(element); } } } return result;
+		 */
+	}
 }
