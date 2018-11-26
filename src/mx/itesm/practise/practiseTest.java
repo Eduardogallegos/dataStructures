@@ -147,13 +147,13 @@ class practiseTest {
 		BinaryNode<Integer> node6 = new BinaryNode<Integer>(6); 
 		BinaryNode<Integer> node7 = new BinaryNode <Integer>(7);
 		BinaryNode<Integer> node8 = new BinaryNode<Integer>(8);
-		root.leftSon = node2;
-		root.rightSon = node5;
-		node2.leftSon = node1;
-		node2.rightSon = node3;
-		node5.rightSon = node7;
-		node7.leftSon = node6;
-		node7.rightSon = node8;
+		root.leftChild = node2;
+		root.rightChild = node5;
+		node2.leftChild = node1;
+		node2.rightChild = node3;
+		node5.rightChild = node7;
+		node7.leftChild = node6;
+		node7.rightChild = node8;
 		assertEquals(8, practise.treeSize(root));
 		assertEquals(1, practise.countOneChild(root));
 	}

@@ -8,19 +8,19 @@ public class BinaryNode <E> implements Serializable{
 	private int numeroDeNodos = 0;
 
 	public E value;
-	public BinaryNode <E> leftSon;
-	public BinaryNode <E> rightSon;
+	public BinaryNode <E> leftChild;
+	public BinaryNode <E> rightChild;
 	
 	public BinaryNode() {
 		value = null;
-		leftSon = null;
-		rightSon = null;
+		leftChild = null;
+		rightChild = null;
 	}
 	
 	public BinaryNode(E value) {
 		this.value = value;
-		leftSon = null;
-		rightSon = null;
+		leftChild = null;
+		rightChild = null;
 	}
 	
 	public E get() {
@@ -34,33 +34,33 @@ public class BinaryNode <E> implements Serializable{
 	public E preorderedWay(BinaryNode<E> node) {
 		E valor = node.value;
 		numeroDeNodos++;
-		if(node.leftSon!= null) {
-			preorderedWay(node.leftSon);
+		if(node.leftChild!= null) {
+			preorderedWay(node.leftChild);
 		}
-		if(node.rightSon != null) {
-			preorderedWay(node.rightSon);
+		if(node.rightChild != null) {
+			preorderedWay(node.rightChild);
 		}
 		return valor;
 	}
 	
 	public E postorderedWay(BinaryNode<E> node) {
-		if(node.leftSon!= null) {
-			preorderedWay(node.leftSon);
+		if(node.leftChild!= null) {
+			preorderedWay(node.leftChild);
 		}
-		if(node.rightSon != null) {
-			preorderedWay(node.rightSon);
+		if(node.rightChild != null) {
+			preorderedWay(node.rightChild);
 		}
 		E valor = node.value;
 		return valor;
 	}
 	
 	public E inorderedWay(BinaryNode<E> node) {
-		if(node.leftSon!= null) {
-			preorderedWay(node.leftSon);
+		if(node.leftChild!= null) {
+			preorderedWay(node.leftChild);
 		}
 		E valor = node.value;
-		if(node.rightSon != null) {
-			preorderedWay(node.rightSon);
+		if(node.rightChild != null) {
+			preorderedWay(node.rightChild);
 		}
 		return valor;
 	}

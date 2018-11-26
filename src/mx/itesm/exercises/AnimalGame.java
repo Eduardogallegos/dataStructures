@@ -15,8 +15,8 @@ public class AnimalGame implements Serializable {
 	static BinaryNode<String> pregunta1 = new BinaryNode<String>("¿Es un animal doméstico?");
 	
 	public AnimalGame() {
-		pregunta1.leftSon = new BinaryNode<String>("Es un (una) Perro?");
-		pregunta1.rightSon = new BinaryNode<String>("Es un (una) Cocodrilo?");
+		pregunta1.leftChild = new BinaryNode<String>("Es un (una) Perro?");
+		pregunta1.rightChild = new BinaryNode<String>("Es un (una) Cocodrilo?");
 	}
 
 	public AnimalGame(BinaryNode<String> ois) {
@@ -24,7 +24,7 @@ public class AnimalGame implements Serializable {
 	}
 
 	public static boolean esAnimal(BinaryNode<String> nodo) {
-		return nodo.leftSon == null && nodo.rightSon == null;
+		return nodo.leftChild == null && nodo.rightChild == null;
 	}
 
 	public static void add(BinaryNode<String> nodo) {
@@ -36,8 +36,8 @@ public class AnimalGame implements Serializable {
 				+ " pero que sea falsa para " + nodoAntiguo.get());
 		String pregunta = sc.nextLine();
 		nodo.set("¿" + pregunta + "?");
-		nodo.leftSon = new BinaryNode<String>("Es un (una)" + nuevoHijo + "?");
-		nodo.rightSon = nodoAntiguo;
+		nodo.leftChild = new BinaryNode<String>("Es un (una)" + nuevoHijo + "?");
+		nodo.rightChild = nodoAntiguo;
 	}
 
 	public static void preguntar(BinaryNode<String> nodo) {
@@ -48,9 +48,9 @@ public class AnimalGame implements Serializable {
 		boolean x = esAnimal(nodo);
 		if (!x) {
 			if (respuesta.equals("s")) {
-				preguntar(nodo.leftSon);
+				preguntar(nodo.leftChild);
 			} else if (respuesta.equals("n")) {
-				preguntar(nodo.rightSon);
+				preguntar(nodo.rightChild);
 			}
 		}
 		if (x) {

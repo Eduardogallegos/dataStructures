@@ -138,21 +138,21 @@ public class practise {
 		if (node == null) {
 			return 0;
 		}
-		return (1 + treeSize(node.leftSon)+ treeSize(node.rightSon));
+		return (1 + treeSize(node.leftChild)+ treeSize(node.rightChild));
 	}
 	
 	public static int countOneChild(BinaryNode<Integer> node) {
-		if((node.leftSon==null&&node.rightSon!=null)) {
-			return 1+countOneChild(node.rightSon);
+		if((node.leftChild==null&&node.rightChild!=null)) {
+			return 1+countOneChild(node.rightChild);
 		}
-		else if((node.rightSon==null&&node.leftSon!=null)) {
-			return 1+countOneChild(node.leftSon);
+		else if((node.rightChild==null&&node.leftChild!=null)) {
+			return 1+countOneChild(node.leftChild);
 		}
-		else if(node.leftSon==null&&node.rightSon==null) {
+		else if(node.leftChild==null&&node.rightChild==null) {
 			return 0;
 		}
 		else {
-			return countOneChild(node.rightSon)+ countOneChild(node.leftSon);
+			return countOneChild(node.rightChild)+ countOneChild(node.leftChild);
 		}
 	}
 	
