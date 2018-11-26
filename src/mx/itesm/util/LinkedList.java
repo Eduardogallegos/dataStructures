@@ -57,7 +57,7 @@ public class LinkedList<E> extends AbstractList<E> {
 	 * @throws IndexOutOfBoundException if the index is out of range (index < 0 ||
 	 *                                  index >= size())
 	 */
-	private Node<E> node(int index) {
+	public Node<E> node(int index) {
 		if (index < 0 || index >= size()) {
 			throw new IndexOutOfBoundsException("Index out of range");
 		}
@@ -188,6 +188,51 @@ public class LinkedList<E> extends AbstractList<E> {
 		return ultimo.t;
 	}
 	
+	public int count(E value) {
+		int contador = 0;
+		for(int i = 0; i < size; i++) {
+			if(node(i).t.equals(value)) {
+				contador++;
+			}
+		}
+		return contador;
+	}
+	public boolean removeFirstOccurrence(E value) {
+		boolean x = false;
+		for(int i = 0; i < size; i++) {
+			int index = i;
+			if(node(i).t.equals(value)) {
+				remove(index);
+				x = true;
+				break;
+			}
+		}
+		return x;
+	}
 	
+	public boolean removeLastOccurrence(E value) {
+		int index = -1;
+		for(int i = 0; i < size; i++) {
+			if(node(i).t.equals(value)) {
+				index = i;
+			}
+		}
+		if(index >= 0) {
+			remove(index);
+			return true;
+		}
+		return false;
+	}
+	
+	/*public int lastIndexOf(E value) {
+		int index = -1;
+		for(int i = 0; i < size; i++) {
+			if(node(i).t.equals(value)) {
+				index = i;
+			}
+		}
+		return index;
+	}*/
+
 
 }

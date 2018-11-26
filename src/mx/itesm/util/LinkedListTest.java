@@ -16,7 +16,7 @@ class LinkedListTest {
 	@BeforeEach
     void setUp() throws Exception {
         stringList = new LinkedList<String>("Katniss", "Peeta", "Gale", "Haymitch", "Primrose", "Effie");
-        integerList = new LinkedList<Integer>(0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89);
+        integerList = new LinkedList<Integer>(0,1,1,1, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89);
         floatList = new LinkedList<Float>();
     }
     
@@ -217,5 +217,25 @@ class LinkedListTest {
 		assertEquals(89, (int) integerList.getLast());
 		assertThrows(NoSuchElementException.class, () -> floatList.getLast());
 	}
+	
+	@Test
+	void count() {
+		assertEquals(5, integerList.count(1));
+		assertEquals(1, integerList.count(13));
+	}
 
+	@Test
+	void removeFirstOccurrence() {
+		assertEquals(true, integerList.removeFirstOccurrence(1));
+		assertEquals(false, integerList.removeFirstOccurrence(-1));
+	}
+
+	@Test
+	void removeLastOccurrence() {
+		assertEquals(false, integerList.removeFirstOccurrence(-1));
+		assertEquals(true, integerList.removeFirstOccurrence(1));
+	}
+	
+
+	
 }
